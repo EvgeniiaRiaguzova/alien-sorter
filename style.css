@@ -1,0 +1,55 @@
+body{
+    background-color: rgb(198, 163, 239);
+    padding-bottom: 20px;
+}
+.navbar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 80px;
+    padding: 10px 200px 0px 200px;
+}
+.game-intro{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start; 
+    align-items: center;
+}
+
+#start-button{
+    color:rgb(112, 16, 201);
+    background-color: rgb(209, 238, 95);
+    border: 2px solid white;
+    border-radius: 10%;
+    font-family:Comic Sans MS;
+    font-style: italic;
+    height: 50px;
+    margin-left: 10px;
+}
+.logo-img {
+    width: 100px; 
+    height: 100px; 
+    object-fit: cover;
+    border-radius: 50%;
+}
+#instruction{
+    margin: auto 10px;
+
+}
+.score-tracker{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end; 
+    align-items: center;
+}
+#score{
+    border: 1px splid rgb(112, 16, 201);
+    padding: auto 10px;
+}
+#game-board{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-left: 20px; 
+    
+}
