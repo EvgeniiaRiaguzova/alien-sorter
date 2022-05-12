@@ -43,13 +43,16 @@ body{
     align-items: center;
 }
 #score{
-    border: 1px splid rgb(112, 16, 201);
-    padding: auto 10px;
+    color:rgb(112, 16, 201);
+    background-color: rgb(209, 238, 95);
+    border: 2px solid white;
+    border-radius: 10%;
+    padding: 10px;
+    margin: auto 10px;
 }
 #game-board{
     display: flex;
     flex-direction: row;
     justify-content: center;
-    padding-left: 20px; 
-    
+    padding-left: 20px;    
 }
