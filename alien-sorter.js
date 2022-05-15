@@ -91,6 +91,27 @@ class Component {
               myGameArea.drawBackground()
           }
       }
+
+      function gameOver(fail){
+        if (this.yellowAlien.y+ this.yellowAlien.height> this.canvas.height-150 
+            && this.yellowAlien.x <this.canvas.width-400)
+        {this.ctx.fillStyle="rgba(249,14,14,0.5)";
+         this.ctx.fillRect(0,350,200,150);
+         myGameArea.drawBackground();
+        fail+=1}
+
+        if (this.purpAlien.y+ this.purpAlien.height > this.canvas.height-150
+            && this.purpAlien.x+80>this.canvas.width-200)
+        {this.ctx.fillStyle="rgba(249,14,14,0.5)";
+         this.ctx.fillRect(400,350,200,150);
+         myGameArea.drawBackground();
+        fail+=1}
+        if (fail>3){stop();
+        this.ctx.font= "34px Bradley Hand";
+      this.ctx.fillText("Game over", 200,200);
+    this.ctx.fillStyle="rgb(209, 238, 95)"}
+      }
+
       setSpeedX(newSpeed) {
         this.speedX = newSpeed;
       }
@@ -123,6 +144,7 @@ class Component {
 
       
       
+
 
 
       /*
