@@ -12,8 +12,8 @@ const myGameArea = {
     if (this.purpAlien !== undefined) {
       this.purpAlien.update();
     }
-    //this.intervalId= setInterval(myGameArea.update(), 20)
-    this.interval=requestAnimationFrame(() => this.update());
+    
+    //this.interval=requestAnimationFrame(() => this.update());
   },
 
   start: function () {
@@ -35,8 +35,7 @@ const myGameArea = {
       this.ctx.drawImage(this.imgYellowPlanet, 400, 350, 200, 150);
     };
     this.alienGenerator();
-
-    this.update();
+    this.interval= setInterval(() => this.update(), 20)
   },
 
   alienGenerator: function () {
@@ -53,6 +52,7 @@ const myGameArea = {
         100,
         'yellow'
       );
+      return
     } else {
       console.log('purp' + alienDNA);
       this.purpAlien = new Component(
@@ -63,6 +63,7 @@ const myGameArea = {
         100,
         'purple'
       );
+      return
     }
   },
 
@@ -75,8 +76,8 @@ const myGameArea = {
   stop: function () {
     console.log('test');
     console.log(this.interval);
-    //myGameArea.clearInterval(intervalId)
-    cancelAnimationFrame(this.interval);
+    clearInterval(this.interval)
+    //cancelAnimationFrame(this.interval);
   },
 };
 
@@ -169,21 +170,25 @@ class Component {
         myGameArea.ctx.fillRect(0, 350, 200, 150);*/
         myGameArea.ctx.clearRect(this.x, this.y, 80, 100);
         myGameArea.drawBackground();
-        myGameArea.alienGenerator();
+        
         myGameArea.fail += 1;
+        myGameArea.alienGenerator();
+        return
       } else {
         myGameArea.score += 1;
         document.getElementById("score").innerHTML=myGameArea.score;
         myGameArea.ctx.clearRect(this.x, this.y, 80, 100);
         myGameArea.drawBackground();
         myGameArea.alienGenerator();
+        return
       }
       //myGameArea.alienGenerator();
-      return;
+      
     } else if (this.y == this.canvas.height) {
       myGameArea.ctx.clearRect(this.x, this.y, 80, 100);
       myGameArea.drawBackground();
       myGameArea.alienGenerator();
+      return
     } else if (
       this.y + this.height > this.canvas.height - 150 &&
       this.x + 80 > this.canvas.width - 200
@@ -193,27 +198,30 @@ class Component {
        myGameArea.ctx.fillRect(0, 350, 200, 150);*/
         myGameArea.ctx.clearRect(this.x, this.y, 80, 100);
         myGameArea.drawBackground();
-        myGameArea.alienGenerator();
         myGameArea.fail += 1;
+        myGameArea.alienGenerator();
+        return
       } else {
         myGameArea.score += 1;
         document.getElementById("score").innerHTML=myGameArea.score;
         myGameArea.ctx.clearRect(this.x, this.y, 80, 100);
         myGameArea.drawBackground();
         myGameArea.alienGenerator();
+        return
       }
       //myGameArea.alienGenerator();
-      return;
+      
     }
     if (myGameArea.fail > 3) {
+      
       myGameArea.ctx.font = '44px Bradley Hand';
       myGameArea.ctx.fillText('Game over', 200, 200);
       myGameArea.ctx.fillStyle = 'rgb(209, 238, 95)';
-
+      myGameArea.stop();
       alert(
         `Congrats! ${myGameArea.score} aliens successfully reached their planet.`
       );
-      myGameArea.stop();
+      
     }
   }
 

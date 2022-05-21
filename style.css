@@ -1,6 +1,8 @@
 body{
     background-color: rgb(198, 163, 239);
     padding-bottom: 20px;
+    
+    
 }
 .navbar{
     display: flex;
@@ -54,5 +56,6 @@ body{
     display: flex;
     flex-direction: row;
     justify-content: center;
-    padding-left: 20px;    
+    padding-left: 20px;
+    margin: 50px    
 }
